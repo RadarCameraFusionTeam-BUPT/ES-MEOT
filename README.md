@@ -18,15 +18,15 @@ If you use the code, please cite our paper:
 
 ## Pipline
 
-<div style="overflow-x: auto; white-space: nowrap;">
-
 | Description |       Step             | Input              | Output                | Method              |
 | ---- | ---- | ---- | ---- | ---- |
-| Preprocess    | 1.1 Keypoints Detection<br>1.2 Track Keypoints<br>1.3 Calculate Plane Points<br>1.4 Train MDN | 1.1 Video **(output.avi)**<br>1.2 Pixel Keypoints **(output-keypoints.npy)**<br>1.3 Tracked Keypoints **(output-keypoints-ByteTrack.npy)**, Radar Track **(radarTrack.npy)**<br>1.4 Plane Points **(output-PlanePoint.npy)** | 1.1 Pixel Keypoints **(output-keypoints.npy)**<br>1.2 Tracked Keypoints **(output-keypoints-ByteTrack.npy)**<br>1.3 Plane Points **(output-PlanePoint.npy)**<br>1.4 MDN **(mdn.pt)** | 1.1 Yolov8<br>1.2 ByteTrack<br>1.3 FusionCalib<br>1.4 MDN |
-| Realtime    | 2.1 Keypoints Detection<br>2.2 Back-projected Pose and Shape<br>2.3 MTPMB Tracker | 2.1 Same as 1.1<br>2.2 Pixel Keypoints **(output-keypoints.npy)**<br>2.3 Radar Point Clouds **(radarPcl.npy)**, Pixel Keypoints **(output-keypoints.npy)**, Back-projected Pose and Shape **(pose_shape_from_kps.npy)**, mdn network **(mdn.pt)** | 2.1 Same as 1.1<br>2.2 Back-projected Pose and Shape **(pose_shape_from_kps.npy)**<br>2.3 Result **(result.npy)** | 2.1 Same as 1.1<br>2.2 EPnP<br>2.3 MTPMB Tracker |
-
-</div>
-
+| **Preprocess**    | 1.1 Keypoints Detection | 1.1 Video **(output.avi)**| 1.1 Pixel Keypoints **(output-keypoints.npy)** | 1.1 Yolov8 |
+|              | 1.2 Track Keypoints | 1.2 Pixel Keypoints (output-keypoints.npy) | 1.2 Tracked Keypoints **(output-keypoints-ByteTrack.npy)** | 1.2 ByteTrack |
+|              | 1.3 Calculate Plane Points | 1.3 Tracked Keypoints **(output-keypoints-ByteTrack.npy)**, Radar Track **(radarTrack.npy)** | 1.3 Plane Points **(output-PlanePoint.npy)** | 1.3 FusionCalib |
+|              | 1.4 Train MDN | 1.4 Plane Points **(output-PlanePoint.npy)** | 1.4 MDN (mdn.pt) | 1.4 MDN |
+| **Realtime**    | 2.1 Keypoints Detection | 2.1 Same as 1.1 | 2.1 Same as 1.1 | 2.1 Same as 1.1 |
+|                 | 2.2 Back-projected Pose and Shape | 2.2 Pixel Keypoints **(output-keypoints.npy)** | 2.2 Back-projected Pose and Shape **(pose_shape_from_kps.npy)** | 2.2 EPnP |
+|                 | 2.3 MTPMB Tracker | 2.3 Radar Point Clouds **(radarPcl.npy)**, Pixel Keypoints **(output-keypoints.npy)**, Back-projected Pose and Shape **(pose_shape_from_kps.npy)**, mdn network **(mdn.pt)** | 2.3 Result **(result.npy)** | 2.3 MTPMB Tracker |
 
 
 ## Installation
